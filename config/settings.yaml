@@ -1,0 +1,24 @@
+clickhouse:
+  host: ${CH_HOST:-localhost}
+  port: ${CH_PORT:-9000}
+  database: aiops
+  user: ${CH_USER:-default}
+  password: ${CH_PASSWORD:-}
+
+generator:
+  interval_seconds: 1
+  batch_size: 50
+  services:
+    - name: order-service
+      host: host-01
+    - name: payment-service
+      host: host-02
+    - name: inventory-service
+      host: host-03
+    - name: user-service
+      host: host-04
+
+scenario:
+  default: normal
+  auto_inject: false
+  auto_inject_interval: 60

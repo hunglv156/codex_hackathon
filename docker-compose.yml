@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  data-generator:
+    build: .
+    environment:
+      CH_HOST: ${CH_HOST}
+      CH_PORT: ${CH_PORT:-9000}
+      CH_USER: ${CH_USER:-default}
+      CH_PASSWORD: ${CH_PASSWORD:-}
+    restart: unless-stopped
